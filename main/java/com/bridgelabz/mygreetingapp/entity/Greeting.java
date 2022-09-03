@@ -1,6 +1,16 @@
 package com.bridgelabz.mygreetingapp.entity;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.*;
+
+@Entity
+
 public class Greeting {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "user_id", nullable = false)
     private long id;
     private String firstName;
     private String lastName;
@@ -13,8 +23,8 @@ public class Greeting {
         this.message = message;
     }
 
-    public long getId() {
-        return id;
+    public Greeting() {
+
     }
 
     public void setId(int id) {
@@ -44,5 +54,15 @@ public class Greeting {
     public void setMessage(String message) {
         this.message = message;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Greeting{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", message='" + message + '\'' +
+                '}';
+    }
+
 }
