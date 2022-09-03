@@ -1,7 +1,5 @@
 package com.bridgelabz.mygreetingapp.entity;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-
 import javax.persistence.*;
 
 @Entity
@@ -16,10 +14,10 @@ public class Greeting {
     private String lastName;
     private String message;
 
-    public Greeting(long id, String firstName) {
+    public Greeting(long id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
-        this.lastName = lastName;
+        this.lastName = this.lastName;
         this.message = message;
     }
 
@@ -64,5 +62,4 @@ public class Greeting {
                 ", message='" + message + '\'' +
                 '}';
     }
-
 }

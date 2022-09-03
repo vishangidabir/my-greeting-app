@@ -12,6 +12,4 @@ public class GreetingService implements IGreeting{
     public Greeting addGreeting(Greeting greets){
         return greetingRepo.save(greets);
     }
-
-
 }
