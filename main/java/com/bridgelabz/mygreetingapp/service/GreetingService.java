@@ -23,4 +23,8 @@ public class GreetingService implements IGreeting{
     public List<Greeting> findAllGreeting(){
         return greetingRepo.findAll();
     }
+
+    public void deleteGreetingId(int id){
+        greetingRepo.deleteById(id);
+    }
 }

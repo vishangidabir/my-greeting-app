@@ -75,4 +75,9 @@ public class GreetingController {
         return greets.findAllGreeting();
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteGreets(@PathVariable int id){
+        greets.deleteGreetingId(id);
+    }
+
 }
