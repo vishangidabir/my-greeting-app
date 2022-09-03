@@ -4,10 +4,7 @@ import com.bridgelabz.mygreetingapp.entity.Greeting;
 import com.bridgelabz.mygreetingapp.service.GreetingService;
 import com.bridgelabz.mygreetingapp.service.IGreeting;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -19,6 +16,9 @@ public class GreetingController {
 
     @Autowired
     IGreeting greets;
+
+    @Autowired
+    GreetingService greetingService;
 //    UC1 :  http://localhost:8080/greeting?name=Vishangi
 //    @GetMapping(value = {"","/","/hello"})
 //    public Greeting greeting(@RequestParam(value="name", defaultValue="world") String name){
@@ -45,19 +45,23 @@ public class GreetingController {
 //        return greets.addGreeting(msg);
 //    }
 
-    @Autowired
-    GreetingService greetingService;
-
-    //    @PostMapping("/post")
+//    @PostMapping("/post")
 //    public Greeting createSecGreeting(@RequestBody Greeting msg){
 //        //return greetingService.addGreeting(msg);
 //        return new Greeting(counter.incrementAndGet(),
 //                String.format(template, msg));
 //    }
-    @GetMapping("/post")
-    public Greeting sayHello(@RequestBody Greeting name) {
-        return new Greeting(counter.incrementAndGet(),
-                name.getFirstName(), name.getLastName());
+
+//    @GetMapping("/post")
+//    public Greeting sayHello(@RequestBody Greeting name) {
+//        return new Greeting(counter.incrementAndGet(),
+//                name.getFirstName(), name.getLastName());
+//    }
+
+    @PostMapping("/add")
+    public Greeting addGreeting(@RequestBody Greeting greet){
+        return greets.addGreeting(greet);
     }
+
 
 }

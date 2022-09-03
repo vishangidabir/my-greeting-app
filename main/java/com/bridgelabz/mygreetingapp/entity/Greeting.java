@@ -8,17 +8,16 @@ public class Greeting {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id", nullable = false)
+    @Column(name = "ID", nullable = false)
     private long id;
     private String firstName;
     private String lastName;
-    private String message;
+
 
     public Greeting(long id, String firstName, String lastName) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = this.lastName;
-        this.message = message;
     }
 
     public Greeting() {
@@ -45,13 +44,6 @@ public class Greeting {
         this.lastName = lastName;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
 
     @Override
     public String toString() {
@@ -59,7 +51,6 @@ public class Greeting {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", message='" + message + '\'' +
                 '}';
     }
 }
