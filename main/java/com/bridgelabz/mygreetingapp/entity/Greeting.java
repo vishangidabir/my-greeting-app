@@ -12,12 +12,15 @@ public class Greeting {
     private long id;
     private String firstName;
     private String lastName;
+    private String message="Hello " +firstName +" " + lastName;
 
 
-    public Greeting(long id, String firstName, String lastName) {
+
+    public Greeting(long id, String firstName, String lastName, String message) {
         this.id = id;
         this.firstName = firstName;
-        this.lastName = this.lastName;
+        this.lastName = lastName;
+        this.message = message;
     }
 
     public Greeting() {
@@ -43,7 +46,9 @@ public class Greeting {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+    public String getMessage() { return message;}
 
+    public void setMessage(String message) {this.message = message;}
 
     @Override
     public String toString() {
@@ -51,6 +56,7 @@ public class Greeting {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", message='" + message + '\'' +
                 '}';
     }
 }
