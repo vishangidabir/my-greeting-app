@@ -6,13 +6,14 @@ import com.bridgelabz.mygreetingapp.service.IGreeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @RequestMapping("/greeting")
 public class GreetingController {
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
+//    private static final String template = "Hello, %s!";
+//    private final AtomicLong counter = new AtomicLong();
 
     @Autowired
     IGreeting greets;
@@ -63,5 +64,9 @@ public class GreetingController {
         return greets.addGreeting(greet);
     }
 
+    @GetMapping("/{id}")
+    public Optional<Greeting> findGreeting(@PathVariable int id){
+        return greets.findGreeting(id);
+    }
 
 }
